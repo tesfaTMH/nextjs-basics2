@@ -1,14 +1,19 @@
-import './globals.css'
+import MainHeader from "@/components/main-header/MainHeader";
+import "./globals.css";
+import MainHeaderBackground from "@/components/main-header/MainHeaderBackground";
 
 export const metadata = {
-  title: 'NextJS Course App',
-  description: 'Your first NextJS app!',
+  title: "NextJS Course App",
+  description: "Your first NextJS app!",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MainHeader />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
