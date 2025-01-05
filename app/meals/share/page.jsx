@@ -1,9 +1,11 @@
 import React from "react";
 import classes from "./page.module.css";
 import ImagePicker from "@/components/meals/ImagePicker";
+import { shareMeal } from "@/lib/actions";
 
 const ShareMealPage = () => {
-  const shareMeal = async (formData) => {
+  {
+    /*const shareMeal = async (formData) => {
     "use server";
 
     const meal = {
@@ -14,7 +16,11 @@ const ShareMealPage = () => {
       creator: formData.get("name"),
       creator_email: formData.get("email"),
     };
-  };
+
+    console.log(meal);
+  };*/
+  }
+
   return (
     <>
       <header className={classes.header}>
@@ -55,9 +61,9 @@ const ShareMealPage = () => {
             />
           </p>
 
-          <ImagePicker />
+          <ImagePicker label={"Pick Image"} name={"image"} />
           <p className={classes.actions}>
-            <button type="button">Share Meal</button>
+            <button type="submit">Share Meal</button>
           </p>
         </form>
       </main>
