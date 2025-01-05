@@ -3,6 +3,18 @@ import classes from "./page.module.css";
 import ImagePicker from "@/components/meals/ImagePicker";
 
 const ShareMealPage = () => {
+  const shareMeal = async (formData) => {
+    "use server";
+
+    const meal = {
+      title: formData.get("title"),
+      summary: formData.get("summary"),
+      instructions: formData.get("instructions"),
+      image: formData.get("image"),
+      creator: formData.get("name"),
+      creator_email: formData.get("email"),
+    };
+  };
   return (
     <>
       <header className={classes.header}>
@@ -13,7 +25,7 @@ const ShareMealPage = () => {
       </header>
 
       <main className={classes.main}>
-        <form className={classes.form}>
+        <form className={classes.form} action={shareMeal}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
