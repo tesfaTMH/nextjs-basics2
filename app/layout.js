@@ -3,8 +3,8 @@ import "./globals.css";
 import MainHeaderBackground from "@/components/main-header/MainHeaderBackground";
 
 export const metadata = {
-  title: "NextJS Course App",
-  description: "Your first NextJS app!",
+  title: "NextLevel Food",
+  description: "Browse and share food recipes",
 };
 
 export default function RootLayout({ children }) {
