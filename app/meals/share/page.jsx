@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
+import React, { useActionState } from "react";
 import classes from "./page.module.css";
 import ImagePicker from "@/components/meals/ImagePicker";
 import { shareMeal } from "@/lib/actions";
+import SubmitFormButton from "@/components/meals/SubmitFormButton";
 
 const ShareMealPage = () => {
   {
@@ -21,6 +23,8 @@ const ShareMealPage = () => {
   };*/
   }
 
+  const [state, formAction] = useActionState(shareMeal, { message: null });
+
   return (
     <>
       <header className={classes.header}>
@@ -31,7 +35,7 @@ const ShareMealPage = () => {
       </header>
 
       <main className={classes.main}>
-        <form className={classes.form} action={shareMeal}>
+        <form className={classes.form} action={formAction}>
           <div className={classes.row}>
             <p>
               <label htmlFor="name">Your name</label>
@@ -62,8 +66,11 @@ const ShareMealPage = () => {
           </p>
 
           <ImagePicker label={"Pick Image"} name={"image"} />
+          {state.message && (
+            <p className="text-red-500 text-sm">{state.message} </p>
+          )}
           <p className={classes.actions}>
-            <button type="submit">Share Meal</button>
+            <SubmitFormButton />
           </p>
         </form>
       </main>
